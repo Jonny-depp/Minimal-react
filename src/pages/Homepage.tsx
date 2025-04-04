@@ -1,6 +1,8 @@
 import { useTheme } from "@mui/material/styles";
 import { m, useScroll, useSpring } from "framer-motion";
 import { HomeHero } from "../sections/home";
+import { Box } from "@mui/material";
+import HomeMinimal from "../sections/home/HomeMinimal";
 
 const Homepage = () => {
   const theme = useTheme();
@@ -32,6 +34,14 @@ const Homepage = () => {
     <>
       {progress}
       <HomeHero />
+      <Box
+        sx={{
+          overflow: "hidden",
+          position: "relative",
+          bgcolor: "background.default",
+        }}
+      />
+      <HomeMinimal />
     </>
   );
 };
