@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Box, SxProps } from "@mui/material";
-import getRatio from "./getRatio";
+import getRatio from "./getRatios";
 
 interface ImageProps {
   sx?: SxProps;
