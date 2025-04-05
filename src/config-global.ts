@@ -1,0 +1,7 @@
+export const HOST_API_KEY = process.env.REACT_APP_HOST_API_KEY || "";
+export const HEADER = {
+  H_MOBILE: 64,
+  H_MAIN_DESKTOP: 88,
+  H_DASHBOARD_DESKTOP: 92,
+  H_DASHBOARD_DESKTOP_OFFSET: 92 - 32,
+};
