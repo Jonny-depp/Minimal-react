@@ -42,7 +42,6 @@ import _mock from "../../_mock";
 import CustomAvatarGroup from "../../components/custom-avatar/CustomAvatarGroup";
 import Label from "../../components/label";
 import MenuPopover from "../../components/menu-popover";
-import Scrollbar from "../../components/scrollbar";
 
 const StyledRoot = styled("div")(({ theme }) => ({
   padding: theme.spacing(10, 0),

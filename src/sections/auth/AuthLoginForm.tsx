@@ -10,14 +10,16 @@ import { Link as RouterLink } from "react-router-dom";
 import { PATH_AUTH } from "../../routes/paths";
 import { LoadingButton } from "@mui/lab";
 
-interface LoginFormValues {
+type LoginFormValues = {
   email: string;
   password: string;
-}
+  afterSubmit?: string;
+};
 
 const AuthLoginForm = () => {
   const { login } = useAuthContext();
   const [showPassword, setShowPassword] = useState(false);
+
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
       .required("Email is required")
@@ -25,12 +27,12 @@ const AuthLoginForm = () => {
     password: Yup.string().required("Password is required"),
   });
 
-  const defaultValues = {
+  const defaultValues: LoginFormValues = {
     email: "demo@minimals.cc",
     password: "demo1234",
   };
 
-  const methods = useForm({
+  const methods = useForm<LoginFormValues>({
     resolver: yupResolver(LoginSchema),
     defaultValues,
   });
@@ -39,31 +41,30 @@ const AuthLoginForm = () => {
     reset,
     setError,
     handleSubmit,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = methods;
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: LoginFormValues) => {
     try {
-      await login(data.email, data.password);
-    } catch (error) {
-      console.error(error);
+      const result = await login(data.email, data.password);
+      console.log("Login successful:", result);
+    } catch (error: any) {
+      console.error("Login error:", error);
       reset();
-      // setError("afterSubmit", {
-      //   ...error,
-      //   message: error.message,
-      // });
+      setError("afterSubmit", {
+        type: "manual",
+        message: error.message || "Login failed. Please try again.",
+      });
     }
   };
 
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
       <Stack spacing={3}>
-        {/* {!!errors.afterSubmit && (
+        {!!errors.afterSubmit && (
           <Alert severity="error">{errors.afterSubmit.message}</Alert>
-        )} */}
-
+        )}
         <RHFTextField name="email" label="Email address" />
-
         <RHFTextField
           name="password"
           label="Password"
@@ -72,7 +73,7 @@ const AuthLoginForm = () => {
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton
-                  onClick={() => setShowPassword(!showPassword)}
+                  onClick={() => setShowPassword((prev) => !prev)}
                   edge="end"
                 >
                   <Iconify
@@ -103,11 +104,11 @@ const AuthLoginForm = () => {
         size="large"
         type="submit"
         variant="contained"
-        loading={isSubmitSuccessful || isSubmitting}
+        loading={isSubmitting}
         sx={{
           bgcolor: "text.primary",
           color: (theme) =>
-            theme.palette.mode === "light" ? "common.white" : "grey.800",
+            theme.palette.mode === "light" ? "common.white" : "grey.600",
           "&:hover": {
             bgcolor: "text.primary",
             color: (theme) =>

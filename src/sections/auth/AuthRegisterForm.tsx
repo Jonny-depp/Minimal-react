@@ -8,6 +8,14 @@ import { useAuthContext } from "../../auth/useAuthContext";
 import Iconify from "../../components/iconify";
 import FormProvider, { RHFTextField } from "../../components/hook-fom";
 
+type RegisterFormValue = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  afterSubmit?: string;
+};
+
 export default function AuthRegisterForm() {
   const { register } = useAuthContext();
 
@@ -22,14 +30,14 @@ export default function AuthRegisterForm() {
     password: Yup.string().required("Password is required"),
   });
 
-  const defaultValues = {
+  const defaultValues: RegisterFormValue = {
     firstName: "",
     lastName: "",
     email: "",
     password: "",
   };
 
-  const methods = useForm({
+  const methods = useForm<RegisterFormValue>({
     resolver: yupResolver(RegisterSchema),
     defaultValues,
   });
@@ -38,10 +46,10 @@ export default function AuthRegisterForm() {
     reset,
     setError,
     handleSubmit,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
+    formState: { errors, isSubmitting },
   } = methods;
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: RegisterFormValue) => {
     try {
       if (register) {
         await register(
@@ -51,13 +59,13 @@ export default function AuthRegisterForm() {
           data.lastName
         );
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
       reset();
-      // setError('afterSubmit', {
-      //   ...error,
-      //   message: error.message,
-      // });
+      setError("afterSubmit", {
+        type: "mannual",
+        message: error.message || "Register failed. Please try again.",
+      });
     }
   };
 
@@ -99,7 +107,7 @@ export default function AuthRegisterForm() {
           size="large"
           type="submit"
           variant="contained"
-          loading={isSubmitting || isSubmitSuccessful}
+          loading={isSubmitting}
           sx={{
             bgcolor: "text.primary",
             color: (theme) =>

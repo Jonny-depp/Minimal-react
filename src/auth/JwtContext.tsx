@@ -15,7 +15,6 @@ interface User {
   email: string;
   firstName?: string;
   lastName?: string;
-  // Add more fields as per your User schema
 }
 
 interface AuthState {
