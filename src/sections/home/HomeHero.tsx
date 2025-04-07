@@ -18,6 +18,7 @@ import SvgColor from "../../components/svg-color";
 import { useState } from "react";
 import useResponsive from "../../hooks/useResponsive";
 import { HEADER } from "../../config-global";
+import { PATH_AUTH } from "../../routes/paths";
 
 const StyledRoot = styled("div")(({ theme }) => ({
   position: "relative",
@@ -164,7 +165,7 @@ function Description() {
           <Stack alignItems="center" spacing={2}>
             <Button
               component={RouterLink}
-              to={""}
+              to={PATH_AUTH.login}
               color="inherit"
               size="large"
               variant="contained"

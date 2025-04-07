@@ -1,3 +1,4 @@
+import { PATH_DASHBOARD } from "./routes/paths";
 export const HOST_API_KEY = process.env.REACT_APP_HOST_API_KEY || "";
 export const HEADER = {
   H_MOBILE: 64,
@@ -5,3 +6,5 @@ export const HEADER = {
   H_DASHBOARD_DESKTOP: 92,
   H_DASHBOARD_DESKTOP_OFFSET: 92 - 32,
 };
+
+export const PATH_AFTER_LOGIN = PATH_DASHBOARD.general.app;

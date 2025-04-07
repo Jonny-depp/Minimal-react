@@ -102,8 +102,6 @@ export default function getPosition(arrow: ArrowPosition) {
         transformOrigin: { vertical: "bottom", horizontal: "right" },
       };
       break;
-
-    // top-right
     default:
       props = {
         style: { ml: 0.75 },
