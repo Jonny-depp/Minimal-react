@@ -10,7 +10,7 @@ const Test = () => {
           fontSize: "50px",
         }}
       >
-        Dashbord
+        Dashboard-test
       </p>
     </div>
   );

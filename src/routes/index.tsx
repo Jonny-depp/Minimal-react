@@ -3,6 +3,9 @@ import { Dashboard, HomePage, LoginPage, RegisterPage } from "./elements";
 import ResetPasswordPage from "../pages/auth/ResetPasswordPage";
 import NewPasswordPage from "../pages/auth/NewPasswordPage";
 import VerifyCodePage from "../pages/auth/VerifyCodePage";
+import { element } from "prop-types";
+import MainLayout from "../layouts/main/MainLayout";
+import CompactLayout from "../layouts/compact";
 
 const Router = () => {
   return useRoutes([
@@ -18,6 +21,7 @@ const Router = () => {
           element: <RegisterPage />,
         },
         {
+          element: <CompactLayout />,
           children: [
             { path: "reset-password", element: <ResetPasswordPage /> },
             { path: "new-password", element: <NewPasswordPage /> },
@@ -31,11 +35,13 @@ const Router = () => {
 
     {
       path: "/",
-      element: <HomePage />,
+      element: <MainLayout />,
+      children: [{ element: <HomePage />, index: true }],
     },
     {
       path: "dashboard/app",
-      element: <Dashboard />,
+      element: <MainLayout />,
+      children: [{ element: <Dashboard />, index: true }],
     },
   ]);
 };
