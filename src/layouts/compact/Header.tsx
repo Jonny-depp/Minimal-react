@@ -1,9 +1,7 @@
-import PropTypes from "prop-types";
 import { Link as RouterLink } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
 import { AppBar, Toolbar, Link } from "@mui/material";
 import { HEADER } from "../../config-global";
-import { bgBlur } from "../../utils/cssStyles";
 import { PATH_PAGE } from "../../routes/paths";
 import Logo from "../../components/logo";
 

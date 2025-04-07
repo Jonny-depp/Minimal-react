@@ -1,10 +1,8 @@
 import { useState } from "react";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
-// form
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-// @mui
 import {
   Stack,
   IconButton,
@@ -12,9 +10,7 @@ import {
   FormHelperText,
 } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
-// routes
 import { PATH_DASHBOARD } from "../../routes/paths";
-// components
 import Iconify from "../../components/iconify";
 
 import FormProvider, { RHFTextField } from "../../components/hook-fom";

@@ -2,15 +2,11 @@ import { m } from "framer-motion";
 import { Box, BoxProps } from "@mui/material";
 import { varContainer } from "./variants";
 import { ReactNode } from "react";
-
-// Define props type
 interface MotionContainerProps extends BoxProps {
   action?: boolean;
   animate?: boolean;
   children: ReactNode;
 }
-
-// MotionContainer component
 export default function MotionContainer({
   animate,
   action = false,

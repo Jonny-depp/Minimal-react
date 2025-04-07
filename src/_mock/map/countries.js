@@ -1,7 +1,5 @@
 import _mock from '../_mock';
 
-// ----------------------------------------------------------------------
-
 export const countries = [
   {
     timezones: ['America/Aruba'],

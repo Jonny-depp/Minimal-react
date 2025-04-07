@@ -41,10 +41,6 @@ export default function RHFCodes({
       event.target.value = value[0];
     }
 
-    // if (value.length >= maxLength && fieldIntIndex < 6 && nextfield !== null) {
-    //   nextfield.focus();
-    // }
-
     handleChange(event);
   };
 

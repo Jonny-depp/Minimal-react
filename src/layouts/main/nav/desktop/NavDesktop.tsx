@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { Stack } from "@mui/material";
 import NavList from "./NavList";
 interface NavDesktopProps {

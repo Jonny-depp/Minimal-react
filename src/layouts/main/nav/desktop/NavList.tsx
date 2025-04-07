@@ -1,19 +1,10 @@
-"use client";
-
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-// @mui
 import { Stack, Fade, Portal } from "@mui/material";
-// hooks
 import useActiveLink from "../../../../hooks/useActiveLink";
-// types
 import type { NavListProps, NavSubListProps } from "./nav";
-//
 import { NavItem, NavItemDashboard } from "./NavItem";
 import { StyledSubheader, StyledMenu } from "./styles";
-
-// ----------------------------------------------------------------------
-
 export default function NavList({ item, isOffset }: NavListProps) {
   const { pathname } = useLocation();
 
@@ -27,7 +18,6 @@ export default function NavList({ item, isOffset }: NavListProps) {
     if (openMenu) {
       handleCloseMenu();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
 
   const handleOpenMenu = () => {
@@ -49,7 +39,6 @@ export default function NavList({ item, isOffset }: NavListProps) {
         open={openMenu}
         isExternalLink={isExternalLink}
         onClick={handleOpenMenu}
-        // onMouseLeave={handleCloseMenu}
       />
 
       {!!children && openMenu && (
@@ -75,9 +64,6 @@ export default function NavList({ item, isOffset }: NavListProps) {
     </>
   );
 }
-
-// ----------------------------------------------------------------------
-
 function NavSubList({
   items,
   isDashboard,

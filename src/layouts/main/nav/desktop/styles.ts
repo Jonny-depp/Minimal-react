@@ -1,10 +1,6 @@
-// @mui
 import { styled, alpha } from "@mui/material/styles";
 import { Paper, ListSubheader, ListItemButton } from "@mui/material";
 import type { ListItemProps } from "./nav";
-
-// ----------------------------------------------------------------------
-
 export const ListItem = styled(ListItemButton, {
   shouldForwardProp: (prop) =>
     prop !== "active" &&
@@ -35,21 +31,17 @@ export const ListItem = styled(ListItemButton, {
       opacity: 0.48,
       backgroundColor: "transparent",
     },
-    // Sub item
     ...(subItem && {
       ...theme.typography.body2,
       color: theme.palette.text.secondary,
     }),
-    // isOffset
     ...(isOffset && {
       color: theme.palette.text.primary,
     }),
-    // Active
     ...(active && {
       color: theme.palette.primary.main,
       "&::before": dotActive,
     }),
-    // Active sub item
     ...(active &&
       subItem && {
         ...theme.typography.subtitle2,
@@ -59,15 +51,11 @@ export const ListItem = styled(ListItemButton, {
           color: theme.palette.primary.main,
         },
       }),
-    // Open
     ...(open && {
       opacity: 0.48,
     }),
   };
 });
-
-// ----------------------------------------------------------------------
-
 export const StyledMenu = styled(Paper)(({ theme }) => ({
   top: 72,
   left: 0,
@@ -83,8 +71,6 @@ export const StyledMenu = styled(Paper)(({ theme }) => ({
   borderRadius: Number(theme.shape.borderRadius) * 2,
   border: `solid 1px ${alpha(theme.palette.grey[500], 0.16)}`,
 }));
-
-// ----------------------------------------------------------------------
 
 export const StyledSubheader = styled(ListSubheader)(({ theme }) => ({
   ...theme.typography.overline,
