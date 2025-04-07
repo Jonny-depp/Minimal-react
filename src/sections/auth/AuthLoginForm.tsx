@@ -6,7 +6,7 @@ import Iconify from "../../components/iconify";
 import { useAuthContext } from "../../auth/useAuthContext";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { PATH_AUTH } from "../../routes/paths";
 import { LoadingButton } from "@mui/lab";
 
@@ -44,10 +44,12 @@ const AuthLoginForm = () => {
     formState: { errors, isSubmitting },
   } = methods;
 
+  const navigate = useNavigate();
   const onSubmit = async (data: LoginFormValues) => {
     try {
       const result = await login(data.email, data.password);
       console.log("Login successful:", result);
+      navigate("/dashboard/app", { replace: true });
     } catch (error: any) {
       console.error("Login error:", error);
       reset();

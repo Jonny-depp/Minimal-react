@@ -16,3 +16,14 @@ export const LoginPage = Loadable(
 export const RegisterPage = Loadable(
   React.lazy(() => import("../pages/auth/RegisterPage"))
 );
+export const VerifyCodePage = Loadable(
+  React.lazy(() => import("../pages/auth/VerifyCodePage"))
+);
+export const NewPasswordPage = Loadable(
+  React.lazy(() => import("../pages/auth/NewPasswordPage"))
+);
+export const ResetPasswordPage = Loadable(
+  React.lazy(() => import("../pages/auth/ResetPasswordPage"))
+);
+
+export const Dashboard = Loadable(React.lazy(() => import("../pages/Test")));

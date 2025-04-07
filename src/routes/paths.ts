@@ -14,3 +14,10 @@ export const PATH_AUTH = {
   resetPassword: path(ROOTS_AUTH, "/reset-password"),
   newPassword: path(ROOTS_AUTH, "/new-password"),
 };
+
+const ROOTS_DASHBOARD = "/dashboard";
+
+export const PATH_DASHBOARD = {
+  root: ROOTS_DASHBOARD,
+  App: path(ROOTS_DASHBOARD, "/App"),
+};

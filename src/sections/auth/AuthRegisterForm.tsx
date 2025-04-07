@@ -7,6 +7,8 @@ import { LoadingButton } from "@mui/lab";
 import { useAuthContext } from "../../auth/useAuthContext";
 import Iconify from "../../components/iconify";
 import FormProvider, { RHFTextField } from "../../components/hook-fom";
+import { useNavigate } from "react-router";
+import { PATH_AUTH } from "../../routes/paths";
 
 type RegisterFormValue = {
   firstName: string;
@@ -48,16 +50,17 @@ export default function AuthRegisterForm() {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = methods;
-
+  const navigate = useNavigate();
   const onSubmit = async (data: RegisterFormValue) => {
     try {
       if (register) {
-        await register(
+        const result = await register(
           data.email,
           data.password,
           data.firstName,
           data.lastName
         );
+        navigate(`${PATH_AUTH.login}`);
       }
     } catch (error: any) {
       console.error(error);

@@ -9,6 +9,7 @@ import {
 import axios from "../utils/axios";
 import localStorageAvailable from "../utils/localStorageAvailable";
 import { isValidToken, setSession } from "./utils";
+import { token } from "stylis";
 
 interface User {
   id: string;
@@ -139,7 +140,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       { email, password }
     );
     const { accessToken, user } = response.data;
-
+    console.log("Sign_in:", accessToken);
     setSession(accessToken);
 
     dispatch({
@@ -162,6 +163,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       const { accessToken, user } = response.data;
 
       localStorage.setItem("accessToken", accessToken);
+      console.log("Sign_up:", accessToken);
 
       dispatch({
         type: "REGISTER",
