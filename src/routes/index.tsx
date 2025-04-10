@@ -3,9 +3,10 @@ import { Dashboard, HomePage, LoginPage, RegisterPage } from "./elements";
 import ResetPasswordPage from "../pages/auth/ResetPasswordPage";
 import NewPasswordPage from "../pages/auth/NewPasswordPage";
 import VerifyCodePage from "../pages/auth/VerifyCodePage";
-import { element } from "prop-types";
 import MainLayout from "../layouts/main/MainLayout";
 import CompactLayout from "../layouts/compact";
+import DashboardLayout from "../layouts/dashboard";
+import Test from "../pages/Test";
 
 const Router = () => {
   return useRoutes([
@@ -38,10 +39,11 @@ const Router = () => {
       element: <MainLayout />,
       children: [{ element: <HomePage />, index: true }],
     },
+
     {
-      path: "dashboard/app",
-      element: <MainLayout />,
-      children: [{ element: <Dashboard />, index: true }],
+      path: "dashboard",
+      element: <DashboardLayout />,
+      children: [{ path: "app", element: <Test /> }],
     },
   ]);
 };

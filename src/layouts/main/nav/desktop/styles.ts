@@ -56,6 +56,7 @@ export const ListItem = styled(ListItemButton, {
     }),
   };
 });
+
 export const StyledMenu = styled(Paper)(({ theme }) => ({
   top: 72,
   left: 0,

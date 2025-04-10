@@ -12,6 +12,8 @@ type AvatarColor =
   | "error";
 
 interface CustomAvatarProps {
+  src?: string;
+  alt?: string;
   name?: string;
   color?: AvatarColor;
   sx?: SxProps<Theme>;
@@ -31,7 +33,7 @@ const getColorByName = (name?: string): AvatarColor => {
 };
 
 const CustomAvatar = forwardRef<HTMLDivElement, CustomAvatarProps>(
-  ({ color, name = "", BadgeProps, children, sx, ...other }, ref) => {
+  ({ src, alt, color, name = "", BadgeProps, children, sx, ...other }, ref) => {
     const theme = useTheme();
     const charAtName = getCharAtName(name);
     const colorByName = getColorByName(name);
@@ -48,7 +50,7 @@ const CustomAvatar = forwardRef<HTMLDivElement, CustomAvatarProps>(
           };
 
     const avatar = (
-      <Avatar ref={ref} sx={avatarStyle} {...other}>
+      <Avatar ref={ref} sx={avatarStyle} src={src} alt={alt} {...other}>
         {charAtName}
         {children}
       </Avatar>

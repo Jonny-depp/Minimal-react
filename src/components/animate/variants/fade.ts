@@ -1,4 +1,4 @@
-import { varTranEnter, varTranExit } from "./transation";
+import { varTranEnter, varTranExit } from "./transition";
 export const varFade = (props?: any) => {
   const distance = props?.distance || 120;
   const durationIn = props?.durationIn;

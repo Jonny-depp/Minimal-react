@@ -67,7 +67,7 @@ export const StyledArrow = styled("span")<StyledArrowProps>(
         transform: "rotate(-135deg)",
         background: theme.palette.background.paper,
       },
-      // Top
+
       ...(arrow === "top-left" && { ...topStyle, left: 20 }),
       ...(arrow === "top-center" && {
         ...topStyle,
@@ -76,7 +76,7 @@ export const StyledArrow = styled("span")<StyledArrowProps>(
         margin: "auto",
       }),
       ...(arrow === "top-right" && { ...topStyle, right: 20 }),
-      // Bottom
+
       ...(arrow === "bottom-left" && { ...bottomStyle, left: 20 }),
       ...(arrow === "bottom-center" && {
         ...bottomStyle,
@@ -85,7 +85,7 @@ export const StyledArrow = styled("span")<StyledArrowProps>(
         margin: "auto",
       }),
       ...(arrow === "bottom-right" && { ...bottomStyle, right: 20 }),
-      // Left
+
       ...(arrow === "left-top" && { ...leftStyle, top: 20 }),
       ...(arrow === "left-center" && {
         ...leftStyle,
@@ -94,7 +94,7 @@ export const StyledArrow = styled("span")<StyledArrowProps>(
         margin: "auto",
       }),
       ...(arrow === "left-bottom" && { ...leftStyle, bottom: 20 }),
-      // Right
+
       ...(arrow === "right-top" && { ...rightStyle, top: 20 }),
       ...(arrow === "right-center" && {
         ...rightStyle,
@@ -102,7 +102,7 @@ export const StyledArrow = styled("span")<StyledArrowProps>(
         bottom: 0,
         margin: "auto",
       }),
-      ...(arrow === "right-bottom" && { ...rightStyle, bottom: 20 }),
+      ...(arrow === "right-bottom" && { rightStyle, bottom: 20 }),
     };
   }
 );

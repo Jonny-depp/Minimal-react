@@ -15,7 +15,7 @@ const MotionViewport: React.FC<MotionViewportProps> = ({
   disableAnimatedMobile = true,
   ...other
 }) => {
-  const isMobile = useResponsive("down", "md", "md");
+  const isMobile = useResponsive("down", "md");
 
   if (isMobile && disableAnimatedMobile) {
     return <Box {...other}>{children}</Box>;

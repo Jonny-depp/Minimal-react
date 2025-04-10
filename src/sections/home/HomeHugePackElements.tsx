@@ -95,7 +95,7 @@ const StyledRow = styled("div")(({ theme }) => ({
 }));
 
 const HomeHugePackElements = () => {
-  const isDesktop = useResponsive("up", "md", "md");
+  const isDesktop = useResponsive("up", "md");
   return (
     <>
       <StyledRoot>
@@ -127,7 +127,7 @@ const HomeHugePackElements = () => {
 export default HomeHugePackElements;
 
 const Description = () => {
-  const isDesktop = useResponsive("up", "md", "md");
+  const isDesktop = useResponsive("up", "md");
 
   return (
     <StyledDescription>
@@ -166,9 +166,9 @@ const Description = () => {
 };
 
 const Content = () => {
-  const isMd = useResponsive("up", "md", "md");
+  const isMd = useResponsive("up", "md");
 
-  const isLg = useResponsive("up", "lg", "lg");
+  const isLg = useResponsive("up", "lg");
 
   const [slider, setSlider] = useState(24);
 

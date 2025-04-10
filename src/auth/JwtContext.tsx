@@ -9,13 +9,14 @@ import {
 import axios from "../utils/axios";
 import localStorageAvailable from "../utils/localStorageAvailable";
 import { isValidToken, setSession } from "./utils";
-import { token } from "stylis";
 
 interface User {
   id: string;
   email: string;
   firstName?: string;
   lastName?: string;
+  role?: string;
+  displayName?: string;
 }
 
 interface AuthState {
@@ -64,6 +65,11 @@ const reducer = (state: AuthState, action: AuthAction): AuthState => {
         user: action.payload.user,
       };
     case "LOGIN":
+      return {
+        ...state,
+        isAuthenticated: true,
+        user: action.payload.user,
+      };
     case "REGISTER":
       return {
         ...state,
@@ -198,6 +204,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     ]
   );
 
+  console.log("memo:", memoizedValue);
   return (
     <AuthContext.Provider value={memoizedValue}>
       {children}
