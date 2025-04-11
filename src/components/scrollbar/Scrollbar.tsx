@@ -4,8 +4,8 @@ import { ReactNode } from "react";
 import { StyledRootScrollbar, StyledScrollbar } from "./styles";
 
 interface ScrollbarProps {
-  children: ReactNode;
-  sx: SxProps;
+  children?: ReactNode;
+  sx?: SxProps;
 }
 
 const Scrollbar = ({ children, sx, ...other }: ScrollbarProps) => {

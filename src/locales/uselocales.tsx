@@ -22,7 +22,6 @@ const useLocales = () => {
     i18n
       .changeLanguage(newlang)
       .then(() => {
-        console.log("Language changed to:", newlang);
         onChangeDirectionByLang();
       })
       .catch((error) => {

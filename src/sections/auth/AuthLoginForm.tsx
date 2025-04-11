@@ -48,7 +48,6 @@ const AuthLoginForm = () => {
   const onSubmit = async (data: LoginFormValues) => {
     try {
       const result = await login(data.email, data.password);
-      console.log("Login successful");
       navigate("/dashboard/app", { replace: true });
     } catch (error: any) {
       console.error("Login error:", error);

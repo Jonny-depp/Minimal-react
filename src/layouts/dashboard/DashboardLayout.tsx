@@ -1,20 +1,27 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useResponsive from "../../hooks/useResponsive";
 import { Box } from "@mui/system";
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
 import Header from "./header";
 import { useSettingsContext } from "../../components/settings";
 import NavVertical from "./nav/NavVertical";
 import NavHorizontal from "./nav/NavHorizontal";
 import NavMini from "./nav/NavMini";
 import Main from "./Main";
+import { useAuthContext } from "../../auth/useAuthContext";
+import LoadingScreen from "../../components/loading-screen";
 
 const DashboardLayout = () => {
+  const auth = useAuthContext();
   const { themeLayout } = useSettingsContext();
   const isDesktop = useResponsive("up", "lg");
   const [open, setOpen] = useState(false);
   const isNavHorizontal = themeLayout === "horizontal";
   const isNavMini = themeLayout === "mini";
+
+  if (!auth?.isInitialized) {
+    return <LoadingScreen />;
+  }
 
   const handleOpen = () => {
     setOpen(true);

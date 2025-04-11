@@ -26,4 +26,6 @@ export const ResetPasswordPage = Loadable(
   React.lazy(() => import("../pages/auth/ResetPasswordPage"))
 );
 
-export const Dashboard = Loadable(React.lazy(() => import("../pages/Test")));
+export const Dashboard = Loadable(
+  React.lazy(() => import("../pages/dashboard/GeneralAppPage"))
+);

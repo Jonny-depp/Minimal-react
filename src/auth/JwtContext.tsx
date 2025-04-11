@@ -44,6 +44,7 @@ interface AuthContextType extends AuthState {
     lastName: string
   ) => Promise<void>;
   logout: () => void;
+  initialize: () => void;
 }
 
 interface AuthProviderProps {
@@ -99,7 +100,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
       const accessToken = storageAvailable
         ? localStorage.getItem("accessToken")
         : "";
-
       if (accessToken && isValidToken(accessToken)) {
         setSession(accessToken);
 
@@ -138,7 +138,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   useEffect(() => {
     initialize();
-  }, [initialize]);
+  }, []);
 
   const login = useCallback(async (email: string, password: string) => {
     const response = await axios.post<{ accessToken: string; user: User }>(
@@ -146,7 +146,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       { email, password }
     );
     const { accessToken, user } = response.data;
-    console.log("Sign_in:", accessToken);
+
     setSession(accessToken);
 
     dispatch({
@@ -167,10 +167,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         { email, password, firstName, lastName }
       );
       const { accessToken, user } = response.data;
-
       localStorage.setItem("accessToken", accessToken);
-      console.log("Sign_up:", accessToken);
-
       dispatch({
         type: "REGISTER",
         payload: { user },
@@ -193,6 +190,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       login,
       register,
       logout,
+      initialize,
     }),
     [
       state.isInitialized,
@@ -201,10 +199,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
       login,
       register,
       logout,
+      initialize,
     ]
   );
 
-  console.log("memo:", memoizedValue);
   return (
     <AuthContext.Provider value={memoizedValue}>
       {children}

@@ -20,7 +20,6 @@ const LanguagePopover = () => {
 
   const handleChangeLang = (newLang: string) => {
     onChangeLang(newLang);
-    console.log("Changing language to:", newLang);
     handleClosePopover();
   };
 

@@ -15,7 +15,6 @@ const StyledRoot = styled("div")(({ theme }) => ({
 
 const NavAccount = () => {
   const user: any = useAuthContext();
-  console.log("user:", user);
   return (
     <Link
       component={RouterLink}
@@ -25,18 +24,18 @@ const NavAccount = () => {
     >
       <StyledRoot>
         <CustomAvatar
-          src={user?.user.photoURL}
-          alt={user?.user.displayName}
-          name={user?.user.displayName}
+          src={user.user.photoURL}
+          alt={user.user.displayName}
+          name={user.user.displayName}
         />
 
         <Box sx={{ ml: 2, minWidth: 0 }}>
           <Typography variant="subtitle2" noWrap>
-            {user?.user.displayName}
+            {user.user.displayName}
           </Typography>
 
           <Typography variant="body2" noWrap sx={{ color: "text.secondary" }}>
-            {user?.user.role}
+            {user.user.role}
           </Typography>
         </Box>
       </StyledRoot>

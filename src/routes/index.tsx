@@ -6,7 +6,9 @@ import VerifyCodePage from "../pages/auth/VerifyCodePage";
 import MainLayout from "../layouts/main/MainLayout";
 import CompactLayout from "../layouts/compact";
 import DashboardLayout from "../layouts/dashboard";
-import Test from "../pages/Test";
+
+import GeneralAppPage from "../pages/dashboard/GeneralAppPage";
+import { useAuthContext } from "../auth/useAuthContext";
 
 const Router = () => {
   return useRoutes([
@@ -43,7 +45,7 @@ const Router = () => {
     {
       path: "dashboard",
       element: <DashboardLayout />,
-      children: [{ path: "app", element: <Test /> }],
+      children: [{ path: "app", element: <GeneralAppPage /> }],
     },
   ]);
 };
