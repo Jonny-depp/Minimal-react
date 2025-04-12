@@ -1,0 +1,60 @@
+import { Box, SxProps } from "@mui/system";
+import { HEADER, NAV } from "../../config-global";
+import { ReactNode } from "react";
+import useResponsive from "../../hooks/useResponsive";
+import { useSettingsContext } from "../../components/settings";
+
+const SPACING = 8;
+
+interface MainProps {
+  sx?: SxProps;
+  children?: ReactNode;
+}
+
+const Main = ({ sx, children, ...other }: MainProps) => {
+  const { themeLayout } = useSettingsContext();
+  const isNavHorizontal = themeLayout === "horizontal";
+  const isNavMini = themeLayout === "mini";
+  const isDesktop = useResponsive("up", "lg");
+  if (isNavHorizontal) {
+    return (
+      <Box
+        component="main"
+        sx={{
+          pt: `${HEADER.H_MOBILE + SPACING}px`,
+          pb: `${HEADER.H_MOBILE + SPACING}px`,
+          ...(isDesktop && {
+            px: 2,
+            pt: `${HEADER.H_DASHBOARD_DESKTOP + 80}px`,
+            pb: `${HEADER.H_DASHBOARD_DESKTOP + SPACING}px`,
+          }),
+        }}
+      >
+        {children}
+      </Box>
+    );
+  }
+
+  return (
+    <Box
+      component="main"
+      sx={{
+        flexGrow: 1,
+        py: `${HEADER.H_MOBILE + SPACING}px`,
+        ...(isDesktop && {
+          px: 2,
+          py: `${HEADER.H_DASHBOARD_DESKTOP + SPACING}px`,
+          width: `calc(100%-${NAV.W_DASHBOARD_MINI})`,
+          ...(isNavMini && {
+            width: `calc(100%-${NAV.W_DASHBOARD_MINI}px)`,
+          }),
+        }),
+        ...sx,
+      }}
+      {...other}
+    >
+      {children}
+    </Box>
+  );
+};
+export default Main;

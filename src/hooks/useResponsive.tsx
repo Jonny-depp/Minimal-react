@@ -7,7 +7,7 @@ type QueryType = "up" | "down" | "between" | "only";
 export default function useResponsive(
   query: QueryType,
   start: Breakpoint,
-  end: Breakpoint
+  end?: Breakpoint
 ): boolean {
   const theme = useTheme();
 
@@ -15,7 +15,7 @@ export default function useResponsive(
 
   const mediaDown = useMediaQuery(theme.breakpoints.down(start));
 
-  const mediaBetween = useMediaQuery(theme.breakpoints.between(start, end));
+  const mediaBetween = useMediaQuery(theme.breakpoints.between(start, end!));
 
   const mediaOnly = useMediaQuery(theme.breakpoints.only(start));
 

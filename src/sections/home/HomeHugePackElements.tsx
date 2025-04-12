@@ -42,6 +42,7 @@ import _mock from "../../_mock";
 import CustomAvatarGroup from "../../components/custom-avatar/CustomAvatarGroup";
 import Label from "../../components/label";
 import MenuPopover from "../../components/menu-popover";
+import Scrollbar from "../../components/scrollbar";
 
 const StyledRoot = styled("div")(({ theme }) => ({
   padding: theme.spacing(10, 0),
@@ -95,7 +96,7 @@ const StyledRow = styled("div")(({ theme }) => ({
 }));
 
 const HomeHugePackElements = () => {
-  const isDesktop = useResponsive("up", "md", "md");
+  const isDesktop = useResponsive("up", "md");
   return (
     <>
       <StyledRoot>
@@ -127,7 +128,7 @@ const HomeHugePackElements = () => {
 export default HomeHugePackElements;
 
 const Description = () => {
-  const isDesktop = useResponsive("up", "md", "md");
+  const isDesktop = useResponsive("up", "md");
 
   return (
     <StyledDescription>
@@ -166,9 +167,9 @@ const Description = () => {
 };
 
 const Content = () => {
-  const isMd = useResponsive("up", "md", "md");
+  const isMd = useResponsive("up", "md");
 
-  const isLg = useResponsive("up", "lg", "lg");
+  const isLg = useResponsive("up", "lg");
 
   const [slider, setSlider] = useState(24);
 
@@ -192,7 +193,6 @@ const Content = () => {
 
   return (
     <StyledContent>
-      {/* Row 1 */}
       <StyledRow>
         <m.div variants={varFade().in}>
           <Button
@@ -223,7 +223,6 @@ const Content = () => {
         </m.div>
       </StyledRow>
 
-      {/* Row 2 */}
       <StyledRow>
         <m.div variants={varFade().in}>
           <Tabs
@@ -281,7 +280,6 @@ const Content = () => {
         </m.div>
       </StyledRow>
 
-      {/* Row 3 */}
       <StyledRow>
         <m.div variants={varFade().in}>
           <CustomAvatar
@@ -344,7 +342,6 @@ const Content = () => {
         </m.div>
       </StyledRow>
 
-      {/* Row 5 */}
       {isMd && (
         <StyledRow>
           <m.div variants={varFade().in}>
@@ -362,7 +359,7 @@ const Content = () => {
             </Button>
           </m.div>
 
-          {/* <MenuPopover
+          <MenuPopover
             open={openPopover}
             onClose={handleClosePopover}
             sx={{ width: 160 }}
@@ -374,7 +371,7 @@ const Content = () => {
                 </MenuItem>
               ))}
             </Scrollbar>
-          </MenuPopover> */}
+          </MenuPopover>
         </StyledRow>
       )}
 

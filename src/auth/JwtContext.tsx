@@ -9,13 +9,23 @@ import {
 import axios from "../utils/axios";
 import localStorageAvailable from "../utils/localStorageAvailable";
 import { isValidToken, setSession } from "./utils";
-import { token } from "stylis";
 
 interface User {
   id: string;
   email: string;
   firstName?: string;
   lastName?: string;
+  role?: string;
+  displayName?: string;
+  photoURL?: string;
+  phoneNumber?: string;
+  country?: string;
+  address?: string;
+  state?: any;
+  city?: string;
+  zipCode?: any;
+  about?: string;
+  isPublic?: any;
 }
 
 interface AuthState {
@@ -43,6 +53,7 @@ interface AuthContextType extends AuthState {
     lastName: string
   ) => Promise<void>;
   logout: () => void;
+  initialize: () => void;
 }
 
 interface AuthProviderProps {
@@ -64,6 +75,11 @@ const reducer = (state: AuthState, action: AuthAction): AuthState => {
         user: action.payload.user,
       };
     case "LOGIN":
+      return {
+        ...state,
+        isAuthenticated: true,
+        user: action.payload.user,
+      };
     case "REGISTER":
       return {
         ...state,
@@ -93,7 +109,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
       const accessToken = storageAvailable
         ? localStorage.getItem("accessToken")
         : "";
-
       if (accessToken && isValidToken(accessToken)) {
         setSession(accessToken);
 
@@ -132,7 +147,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   useEffect(() => {
     initialize();
-  }, [initialize]);
+  }, []);
 
   const login = useCallback(async (email: string, password: string) => {
     const response = await axios.post<{ accessToken: string; user: User }>(
@@ -140,7 +155,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       { email, password }
     );
     const { accessToken, user } = response.data;
-    console.log("Sign_in:", accessToken);
+
     setSession(accessToken);
 
     dispatch({
@@ -161,10 +176,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
         { email, password, firstName, lastName }
       );
       const { accessToken, user } = response.data;
-
       localStorage.setItem("accessToken", accessToken);
-      console.log("Sign_up:", accessToken);
-
       dispatch({
         type: "REGISTER",
         payload: { user },
@@ -187,6 +199,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       login,
       register,
       logout,
+      initialize,
     }),
     [
       state.isInitialized,
@@ -195,6 +208,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       login,
       register,
       logout,
+      initialize,
     ]
   );
 

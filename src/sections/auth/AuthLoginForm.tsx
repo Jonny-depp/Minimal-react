@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, IconButton, InputAdornment, Stack, Alert } from "@mui/material";
-import FormProvider, { RHFTextField } from "../../components/hook-fom";
+import FormProvider, { RHFTextField } from "../../components/hook-form";
 import Iconify from "../../components/iconify";
 import { useAuthContext } from "../../auth/useAuthContext";
 import * as Yup from "yup";
@@ -48,7 +48,6 @@ const AuthLoginForm = () => {
   const onSubmit = async (data: LoginFormValues) => {
     try {
       const result = await login(data.email, data.password);
-      console.log("Login successful:", result);
       navigate("/dashboard/app", { replace: true });
     } catch (error: any) {
       console.error("Login error:", error);

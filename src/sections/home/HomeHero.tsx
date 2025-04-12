@@ -50,9 +50,7 @@ const StyledDescription = styled("div")(({ theme }) => ({
 }));
 
 const StyledGradientText = styled(m.h1)(({ theme }) => ({
-  ...textGradient(
-    `300deg, ${theme.palette.primary.main} 0%, ${theme.palette.warning.main} 25%, ${theme.palette.primary.main} 50%, ${theme.palette.warning.main} 75%, ${theme.palette.primary.main} 100%`
-  ),
+  ...textGradient(300),
   backgroundSize: "400%",
   fontFamily: "'Barlow', sans-serif",
   fontSize: `${64 / 16}rem`,
@@ -92,7 +90,7 @@ const StyledEllipseBottom = styled("div")(({ theme }) => ({
 }));
 
 const HomeHero = () => {
-  const isDesktop = useResponsive("up", "md", "md");
+  const isDesktop = useResponsive("up", "md");
 
   const { scrollYProgress } = useScroll();
 

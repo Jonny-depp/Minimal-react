@@ -1,12 +1,27 @@
-import { useRoutes } from "react-router-dom";
-import { Dashboard, HomePage, LoginPage, RegisterPage } from "./elements";
-import ResetPasswordPage from "../pages/auth/ResetPasswordPage";
-import NewPasswordPage from "../pages/auth/NewPasswordPage";
-import VerifyCodePage from "../pages/auth/VerifyCodePage";
-import { element } from "prop-types";
-import MainLayout from "../layouts/main/MainLayout";
-import CompactLayout from "../layouts/compact";
-
+import { Navigate, useRoutes } from "react-router-dom";
+import {
+  HomePage,
+  LoginPage,
+  RegisterPage,
+  UserProfilePage,
+  ResetPasswordPage,
+  NewPasswordPage,
+  VerifyCodePage,
+  MainLayout,
+  CompactLayout,
+  DashboardLayout,
+  GeneralAppPage,
+  UserAccountPage,
+  UserCardsPage,
+  UserListPage,
+  UserCreatePage,
+  UserEditPage,
+  GeneralEcommercePage,
+  GeneralAnalyticsPage,
+  GeneralBankingPage,
+  GeneralBookingPage,
+  GeneralFilePage,
+} from "./elements";
 const Router = () => {
   return useRoutes([
     {
@@ -38,10 +53,35 @@ const Router = () => {
       element: <MainLayout />,
       children: [{ element: <HomePage />, index: true }],
     },
+
     {
-      path: "dashboard/app",
-      element: <MainLayout />,
-      children: [{ element: <Dashboard />, index: true }],
+      path: "dashboard",
+      element: <DashboardLayout />,
+
+      children: [
+        { path: "app", element: <GeneralAppPage /> },
+        { path: "ecommerce", element: <GeneralEcommercePage /> },
+        { path: "analytics", element: <GeneralAnalyticsPage /> },
+        { path: "banking", element: <GeneralBankingPage /> },
+        { path: "booking", element: <GeneralBookingPage /> },
+        { path: "file", element: <GeneralFilePage /> },
+
+        {
+          path: "user",
+          children: [
+            {
+              element: <Navigate to="/dashboard/user/profile" replace />,
+              index: true,
+            },
+            { path: "profile", element: <UserProfilePage /> },
+            { path: "account", element: <UserAccountPage /> },
+            { path: "cards", element: <UserCardsPage /> },
+            { path: "list", element: <UserListPage /> },
+            { path: "new", element: <UserCreatePage /> },
+            { path: ":name/edit", element: <UserEditPage /> },
+          ],
+        },
+      ],
     },
   ]);
 };

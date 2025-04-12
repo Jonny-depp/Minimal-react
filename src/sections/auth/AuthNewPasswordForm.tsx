@@ -13,7 +13,7 @@ import { LoadingButton } from "@mui/lab";
 import { PATH_DASHBOARD } from "../../routes/paths";
 import Iconify from "../../components/iconify";
 
-import FormProvider, { RHFTextField } from "../../components/hook-fom";
+import FormProvider, { RHFTextField } from "../../components/hook-form";
 
 export default function AuthNewPasswordForm() {
   const navigate = useNavigate();

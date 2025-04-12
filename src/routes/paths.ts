@@ -17,6 +17,29 @@ export const PATH_AUTH = {
 
 const ROOTS_DASHBOARD = "/dashboard";
 
+export const PATH_DASHBOARD = {
+  root: ROOTS_DASHBOARD,
+  fileManager: path(ROOTS_DASHBOARD, "/files-manager"),
+  general: {
+    app: path(ROOTS_DASHBOARD, "/app"),
+    ecommerce: path(ROOTS_DASHBOARD, "/ecommerce"),
+    analytics: path(ROOTS_DASHBOARD, "/analytics"),
+    banking: path(ROOTS_DASHBOARD, "/banking"),
+    booking: path(ROOTS_DASHBOARD, "/booking"),
+    file: path(ROOTS_DASHBOARD, "/file"),
+  },
+  user: {
+    root: path(ROOTS_DASHBOARD, "/user"),
+    new: path(ROOTS_DASHBOARD, "/user/new"),
+    list: path(ROOTS_DASHBOARD, "/user/list"),
+    cards: path(ROOTS_DASHBOARD, "/user/cards"),
+    profile: path(ROOTS_DASHBOARD, "/user/profile"),
+    account: path(ROOTS_DASHBOARD, "/user/account"),
+    edit: (name: string) => path(ROOTS_DASHBOARD, `/user/${name}/edit`),
+    demoEdit: path(ROOTS_DASHBOARD, `/user/reece-chung/edit`),
+  },
+};
+
 export const PATH_PAGE = {
   comingSoon: "/coming-soon",
   maintenance: "/maintenance",
@@ -47,10 +70,3 @@ export const PATH_FREE_VERSION =
 
 export const PATH_FIGMA_PREVIEW =
   "https://www.figma.com/file/rWMDOkMZYw2VpTdNuBBCvN/%5BPreview%5D-Minimal-Web.26.11.22?node-id=0%3A1&t=ya2mDFiuhTXXLLF1-1";
-
-export const PATH_DASHBOARD = {
-  root: ROOTS_DASHBOARD,
-  general: {
-    app: path(ROOTS_DASHBOARD, "/app"),
-  },
-};
