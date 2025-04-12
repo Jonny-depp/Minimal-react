@@ -27,7 +27,7 @@ interface TableHeadCustomProps {
   headLabel: Array<any>;
   rowCount?: number;
   numSelected?: number;
-  onSelectAllRows?: () => void;
+  onSelectAllRows?: (checked: boolean) => void;
   order?: "asc" | "desc";
 }
 
@@ -49,7 +49,7 @@ export default function TableHeadCustom({
             <Checkbox
               indeterminate={numSelected > 0 && numSelected < rowCount}
               checked={rowCount > 0 && numSelected === rowCount}
-              onChange={(event: any) => onSelectAllRows()}
+              onChange={(event: any) => onSelectAllRows(event.target.checked)}
             />
           </TableCell>
         )}

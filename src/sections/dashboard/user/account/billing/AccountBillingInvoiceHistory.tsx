@@ -1,0 +1,41 @@
+import { Stack, Link, Button, Typography } from "@mui/material";
+import { fDate } from "../../../../../utils/formatTime";
+import { fCurrency } from "../../../../../utils/formatNumber";
+import Iconify from "../../../../../components/iconify";
+
+export default function AccountBillingInvoiceHistory({ invoices }: any) {
+  return (
+    <Stack spacing={3} alignItems="flex-end">
+      <Typography variant="overline" sx={{ width: 1, color: "text.secondary" }}>
+        Invoice History
+      </Typography>
+
+      <Stack spacing={2} sx={{ width: 1 }}>
+        {invoices.map((invoice: any) => (
+          <Stack
+            key={invoice.id}
+            direction="row"
+            justifyContent="space-between"
+            sx={{ width: 1 }}
+          >
+            <Typography variant="body2" sx={{ minWidth: 120 }}>
+              {fDate(invoice.createdAt)}
+            </Typography>
+
+            <Typography variant="body2">{fCurrency(invoice.price)}</Typography>
+
+            <Link>PDF</Link>
+          </Stack>
+        ))}
+      </Stack>
+
+      <Button
+        size="small"
+        color="inherit"
+        endIcon={<Iconify icon="eva:arrow-ios-forward-fill" />}
+      >
+        All invoices
+      </Button>
+    </Stack>
+  );
+}

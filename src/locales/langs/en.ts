@@ -24,6 +24,7 @@ const en = {
   general: `general`,
   banking: `banking`,
   booking: `booking`,
+  file: `file`,
   profile: `profile`,
   account: `account`,
   product: `product`,

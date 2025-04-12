@@ -46,7 +46,7 @@ const NavList = ({ data, depth, hasChild }: NavListProps) => {
     </>
   );
 };
-
+export default NavList;
 interface NavSubListProps {
   data: any;
   depth: number;

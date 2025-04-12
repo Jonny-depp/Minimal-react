@@ -24,6 +24,7 @@ const vn = {
   general: `chung`,
   banking: `ngân hàng`,
   booking: `đặt phòng`,
+  file: `tải phòng`,
   profile: `hồ sơ`,
   account: `tải khoản`,
   product: `sản phẩm`,

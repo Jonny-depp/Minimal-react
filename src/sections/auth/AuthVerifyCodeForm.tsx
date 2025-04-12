@@ -5,7 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Stack, FormHelperText } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import { PATH_DASHBOARD } from "../../routes/paths";
-import FormProvider, { RHFCodes } from "../../components/hook-fom";
+import FormProvider, { RHFCodes } from "../../components/hook-form";
 export default function AuthVerifyCodeForm() {
   const navigate = useNavigate();
 

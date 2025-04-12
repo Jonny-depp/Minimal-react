@@ -1,10 +1,21 @@
-import { Box, Switch, TablePagination, FormControlLabel } from "@mui/material";
+import {
+  Box,
+  Switch,
+  TablePagination,
+  FormControlLabel,
+  SxProps,
+} from "@mui/material";
 
 interface TablePaginationCustomProps {
-  dense: boolean;
-  onChangeDense: () => void;
-  rowsPerPageOptions: any;
-  sx: object;
+  dense?: boolean;
+  onChangeDense?: () => void;
+  rowsPerPageOptions?: any;
+  sx?: SxProps;
+  count?: any;
+  page?: number;
+  rowsPerPage: any;
+  onPageChange: any;
+  onRowsPerPageChange: any;
 }
 
 export default function TablePaginationCustom({

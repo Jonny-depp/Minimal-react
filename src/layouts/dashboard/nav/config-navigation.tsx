@@ -61,6 +61,26 @@ const navConfig = [
       { title: "file", path: PATH_DASHBOARD.general.file, icon: ICONS.file },
     ],
   },
+
+  {
+    subheader: "management",
+    items: [
+      // USER
+      {
+        title: "user",
+        path: PATH_DASHBOARD.user.root,
+        icon: ICONS.user,
+        children: [
+          { title: "profile", path: PATH_DASHBOARD.user.profile },
+          { title: "account", path: PATH_DASHBOARD.user.account },
+          { title: "cards", path: PATH_DASHBOARD.user.cards },
+          { title: "create", path: PATH_DASHBOARD.user.new },
+          { title: "edit", path: PATH_DASHBOARD.user.demoEdit },
+          { title: "list", path: PATH_DASHBOARD.user.list },
+        ],
+      },
+    ],
+  },
 ];
 
 export default navConfig;

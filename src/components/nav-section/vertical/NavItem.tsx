@@ -41,7 +41,8 @@ const NavItem = ({
       )}
 
       <ListItemText
-        primary={`${translate(caption)}`}
+        sx={{ color: "white" }}
+        primary={`${translate(title)}`}
         secondary={
           caption && (
             <Tooltip title={`${translate(caption)}`} placement="top-start">
@@ -59,11 +60,11 @@ const NavItem = ({
           variant: "caption",
         }}
       />
-      {info && (
+      {/* {info && (
         <Box component="span" sx={{ lineHeight: 0 }}>
           {info}
         </Box>
-      )}
+      )} */}
 
       {!!children && (
         <Iconify

@@ -24,6 +24,7 @@ const fr = {
   general: `général`,
   banking: `bancaire`,
   booking: `réservation`,
+  file: `file`,
   profile: `profil`,
   account: `compte`,
   product: `produit`,

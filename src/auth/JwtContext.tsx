@@ -17,6 +17,15 @@ interface User {
   lastName?: string;
   role?: string;
   displayName?: string;
+  photoURL?: string;
+  phoneNumber?: string;
+  country?: string;
+  address?: string;
+  state?: any;
+  city?: string;
+  zipCode?: any;
+  about?: string;
+  isPublic?: any;
 }
 
 interface AuthState {

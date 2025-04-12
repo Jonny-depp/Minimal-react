@@ -6,7 +6,7 @@ import { Stack, IconButton, InputAdornment, Alert } from "@mui/material";
 import { LoadingButton } from "@mui/lab";
 import { useAuthContext } from "../../auth/useAuthContext";
 import Iconify from "../../components/iconify";
-import FormProvider, { RHFTextField } from "../../components/hook-fom";
+import FormProvider, { RHFTextField } from "../../components/hook-form";
 import { useNavigate } from "react-router";
 import { PATH_AUTH } from "../../routes/paths";
 

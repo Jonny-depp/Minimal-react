@@ -1,13 +1,13 @@
-import { Checkbox, Typography, Stack } from "@mui/material";
+import { Checkbox, Typography, Stack, SxProps } from "@mui/material";
 import { ReactNode } from "react";
 
 interface TableSelectedActionProps {
-  sx: object;
+  sx?: SxProps;
   dense: boolean;
-  action: ReactNode;
+  action?: ReactNode;
   rowCount: number;
   numSelected: number;
-  onSelectAllRows: () => void;
+  onSelectAllRows: (checked: boolean) => void;
 }
 
 export default function TableSelectedAction({
@@ -47,7 +47,7 @@ export default function TableSelectedAction({
       <Checkbox
         indeterminate={numSelected > 0 && numSelected < rowCount}
         checked={rowCount > 0 && numSelected === rowCount}
-        onChange={(event) => onSelectAllRows()}
+        onChange={(event) => onSelectAllRows(event.target.checked)}
       />
 
       <Typography

@@ -24,6 +24,7 @@ const cn = {
   general: `一般的`,
   banking: `银行业`,
   booking: `预订`,
+  file: `档案`,
   profile: `轮廓`,
   account: `帐户`,
   product: `产品`,

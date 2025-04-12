@@ -24,6 +24,7 @@ const ar = {
   general: `جنرال لواء`,
   banking: `الخدمات المصرفية`,
   booking: `الحجز`,
+  file: `الحساب`,
   profile: `الملف الشخصي`,
   account: `الحساب`,
   product: `المنتوج`,

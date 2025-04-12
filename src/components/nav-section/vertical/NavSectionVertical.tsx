@@ -2,7 +2,7 @@ import { SxProps } from "@mui/system";
 import { useLocales } from "../../../locales";
 import { List, Stack } from "@mui/material";
 import { StyledSubheader } from "./styles";
-import NavList from "../mini/NavList";
+import NavList from "./NavList";
 
 interface NavSectionVerticalProps {
   sx?: SxProps;
@@ -27,7 +27,6 @@ const NavSectionVertical = ({
                 group.subheader
               )}`}</StyledSubheader>
             )}
-
             {group.items.map((list: any) => (
               <NavList
                 key={list.title + list.path}

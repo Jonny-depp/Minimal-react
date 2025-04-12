@@ -1,6 +1,6 @@
 import LoadingButton from "@mui/lab/LoadingButton";
 import { useNavigate } from "react-router";
-import FormProvider, { RHFTextField } from "../../components/hook-fom";
+import FormProvider, { RHFTextField } from "../../components/hook-form";
 import { PATH_AUTH } from "../../routes/paths";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
